@@ -144,9 +144,11 @@ module.exports = naze = async (naze, m, chatUpdate, store) => {
             if (chats) {
                 if (!('mute' in chats)) chats.mute = false
                 if (!('antilink' in chats)) chats.antilink = false
+		if (!('antivirtex' in chats)) chats.antivirtex = false
             } else global.db.data.chats[m.chat] = {
                 mute: false,
                 antilink: false,
+		antivirtex: false,
             }
 		
 	    let setting = global.db.data.settings[botNumber]
@@ -212,10 +214,22 @@ module.exports = naze = async (naze, m, chatUpdate, store) => {
         if (isgclink) return m.reply(`*maaf gak jadi, karena kamu ngirim link group ini*`)
         if (isAdmins) return m.reply(`*maaf kamu admin*`)
         if (isCreator) return m.reply(`*maaf kamu owner bot ku*`)
+	naze.groupParticipantsUpdate(m.chat, { delete: m.key })
         naze.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
         }
         }
         
+	    // antivirtex
+	     if (db.data.chats[m.chat].antivirtex) {
+        if (budy.match(`ผิดุท้เึางืผิดุท้เึางื♚㜸ཽཽࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ͢͢㜺৭৭৭๒๒๒؋.ᄻ.ྜྷ.ᇸ.ྙ๖ۣۜy๖ۣۜF๖ۣۜr๖๑๑๑๑๑๑๑๑๑๑๑ผิดุท้่เึางืผิดุท้่เึางื๒๒๒๒๒๒๒๒ผิดุท้่เึางืผิดุท้่เึางืPLHIPS๒๑ৡ⃟Đ.Δ.Μ`)) {
+        m.reply(`「 *antivirtex* 」\n\n*Kamu terdeteksi mengirim link group*, *maaf kamu akan di kick‼️,yang mau juga silahkan kirim link‼️*`)
+        if (!isBotAdmins) return m.reply(`*Bot aja bukan admin anj*`)
+        if (isAdmins) return m.reply(`*maaf kamu admin*`)
+        if (isCreator) return m.reply(`*maaf kamu owner bot ku*`)
+	naze.groupParticipantsUpdate(m.chat, { delete: m.key })
+        naze.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+        }
+        }
       // Mute Chat
       if (db.data.chats[m.chat].mute && !isAdmins && !isCreator) {
       return
@@ -1215,6 +1229,27 @@ break
                         { buttonId: 'antilink off', buttonText: { displayText: 'Off' }, type: 1 }
                     ]
                     await naze.sendButtonText(m.chat, buttons, `Mode Antilink`, naze.user.name, m)
+                }
+             }
+             break
+			case 'antivirtex': {
+                if (!m.isGroup) throw mess.group
+                if (!isBotAdmins) throw mess.botAdmin
+                if (!isAdmins) throw mess.admin
+                if (args[0] === "on") {
+                if (db.data.chats[m.chat].antivirtex) return m.reply(`*Sudah Aktif kak Sebelumnya*`)
+                db.data.chats[m.chat].antivirtex = true
+                m.reply(`*Antivirtex Sekarang Aktif !*`)
+                } else if (args[0] === "off") {
+                if (!db.data.chats[m.chat].antivirtex) return m.reply(`*Sudah Tidak Aktif Sebelumnya*`)
+                db.data.chats[m.chat].antivirtex = false
+                m.reply(`*antivirtex Sekarang Tidak Aktif !*`)
+                } else {
+                 let buttons = [
+                        { buttonId: 'antivirtex on', buttonText: { displayText: 'On' }, type: 1 },
+                        { buttonId: 'antivirtex off', buttonText: { displayText: 'Off' }, type: 1 }
+                    ]
+                    await naze.sendButtonText(m.chat, buttons, `Mode antivirtex`, naze.user.name, m)
                 }
              }
              break
@@ -2988,6 +3023,7 @@ goup = `┌──⭓ *Group Menu*
 │⭔ ${prefix}hidetag [text]
 │⭔ ${prefix}tagall [text]
 │⭔ ${prefix}antilink [on/off]
+│⭔ ${prefix}antivirtex [on/off] (New)
 │⭔ ${prefix}mute [on/off]
 │⭔ ${prefix}promote @user
 │⭔ ${prefix}demote @user
@@ -3380,6 +3416,7 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: '⬅️Back'
 │⭔ ${prefix}hidetag [text]
 │⭔ ${prefix}tagall [text]
 │⭔ ${prefix}antilink [on/off]
+│⭔ ${prefix}antivirtex [on/off] (New)
 │⭔ ${prefix}mute [on/off]
 │⭔ ${prefix}promote @user
 │⭔ ${prefix}demote @user
