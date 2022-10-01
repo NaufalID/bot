@@ -222,7 +222,7 @@ module.exports = naze = async (naze, m, chatUpdate, store) => {
 	    // antivirtex
 	     if (db.data.chats[m.chat].antivirtex) {
         if (budy.match(`ผิดุท้เึางืผิดุท้เึางื♚㜸ཽཽࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ͢͢㜺৭৭৭๒๒๒؋.ᄻ.ྜྷ.ᇸ.ྙ๖ۣۜy๖ۣۜF๖ۣۜr๖๑๑๑๑๑๑๑๑๑๑๑ผิดุท้่เึางืผิดุท้่เึางื๒๒๒๒๒๒๒๒ผิดุท้่เึางืผิดุท้่เึางืPLHIPS๒๑ৡ⃟Đ.Δ.Μ`)) {
-        m.reply(`「 *antivirtex* 」\n\n*Kamu terdeteksi mengirim link group*, *maaf kamu akan di kick‼️,yang mau juga silahkan kirim link‼️*`)
+        m.reply(`「 *antivirtex* 」\n\n*Kamu terdeteksi mengirim antivirtex*, *maaf kamu akan di kick‼️,yang mau juga silahkan kirim link‼️*`)
         if (!isBotAdmins) return m.reply(`*Bot aja bukan admin anj*`)
         if (isAdmins) return m.reply(`*maaf kamu admin*`)
         if (isCreator) return m.reply(`*maaf kamu owner bot ku*`)
@@ -615,11 +615,11 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             }
             break
 	    case 'donasi': case 'sewabot': case 'sewa': case 'buypremium': case 'donate': {
-                naze.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74fd634010128be37972c.jpg' }, caption: `*${ucapanWaktu} Kak ${m.pushName}*\n\n *Jika ingin berdonasi silahkan scan gambar diatas*\n\n*Jika ingin sewa bot atau premium*\n*Silahkan Chat Owner*\n\n*Atau klik link dibawah ini*\n_https://saweria.co/naze_\n\n*Atau Transfer via*\n- *Gopay Dana Ovo Qris ShopeePay*\n Ke nomer berikut : 082113821188\n\n_Terima kasih_` }, { quoted: m })
+                naze.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/46ff21cb782a6df825a97.png' }, caption: `*${ucapanWaktu} Kak ${m.pushName}*\n\n *Jika ingin berdonasi silahkan scan gambar diatas*\n\n*Jika ingin sewa bot atau premium*\n*Silahkan Chat Owner*\n\n*Atau klik link dibawah ini*\n_https://saweria.co/naze_\n\n*Atau Transfer via*\n- *Gopay Dana Ovo Qris ShopeePay*\n Ke nomer berikut : 082113821188\n\n_Terima kasih_` }, { quoted: m })
             }
             break
             case 'sc': {
-                m.reply('https://wa.me/6285822347348')
+                m.reply('https://wa.me/6289601124991')
             }
             break		 
             case 'chat': {
