@@ -670,7 +670,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             }
             break
 		 case 'susunkata': {
-		      else if (args[0] === 'susunkata') 
+		    if (args[0] === 'susunkata') 
                     if (susunkata.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
