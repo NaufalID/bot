@@ -680,7 +680,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
                     await sleep(60000)
                     if (susunkata.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    naze.sendButtonText(m.chat, [{ buttonId: 'susunkata', buttonText: { displayText: susunkata' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, naze.user.name, m)
+                    naze.sendButtonText(m.chat, [{ buttonId: 'susunkata', buttonText: { displayText: susunkata' }, type: 1 }], `Waktu Habis\nJawaban:  ${susunkata[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, naze.user.name, m)
                     delete susunkata[m.sender.split('@')[0]]
                     }
             case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
