@@ -669,7 +669,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
                 }
             }
             break
-		 case 'susunkata': {
+		 /*case 'susunkata': {
 		    if (args[0] === 'susunkata') 
                     if (susunkata.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')
@@ -682,7 +682,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
                     console.log("Jawaban: " + result.jawaban)
                     delete susunkata[m.sender.split('@')[0]]
                     }
-	     break
+	     break*/
             case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
             if (!m.quoted && !text) throw `Kirim/reply text dengan caption ${prefix + command}`
             ter = command[1].toLowerCase()
