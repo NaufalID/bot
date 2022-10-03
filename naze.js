@@ -682,6 +682,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
                     console.log("Jawaban: " + result.jawaban)
                     delete susunkata[m.sender.split('@')[0]]
                     }
+	     break
             case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
             if (!m.quoted && !text) throw `Kirim/reply text dengan caption ${prefix + command}`
             ter = command[1].toLowerCase()
