@@ -674,7 +674,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
                     if (susunkata.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    naze.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
+                    naze.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\n${result.tipe}\nWaktu : 60s`, m).then(() => {
                     susunkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
